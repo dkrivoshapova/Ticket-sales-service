@@ -19,7 +19,7 @@ public class AirTicketService {
 
     public ModelAndView getAllFlights() {
         List<Flight> flights = airTickerRepository.findAll();
-        Set<FlightDto> resultList = new HashSet<>();
+        Set<FlightDto> resultList = new HashSet<>(); //множество с уникальными значениями
         for (Flight flight : flights) {
             FlightDto flightDTO = new FlightDto();
             flightDTO.setNumber(flight.getNumber());
@@ -37,7 +37,7 @@ public class AirTicketService {
     private ModelAndView createAndFillModel(Set<FlightDto> flightDTOs) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.clear();
-        modelAndView.getModel().put("listFlights", flightDTOs);
+        modelAndView.getModel().put("listFlights", flightDTOs); // выводит список полетов на страницу
         modelAndView.setViewName("welcome");
         return modelAndView;
     }

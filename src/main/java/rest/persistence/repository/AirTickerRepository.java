@@ -14,7 +14,4 @@ public interface AirTickerRepository extends JpaRepository<Flight, Integer> {
             + "from flights as f "
             + "join dates d on f.id = d.flight_id ", nativeQuery = true)
     List<Flight> findAllFlights();
-
-//    List<Flights> findAllByIdEx
-
 }

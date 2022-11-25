@@ -10,7 +10,7 @@ import java.util.*;
 @Table(name = "flights")
 public class Flight {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // тоже самое, что AUTO_INCREMENT - автозаполнение id
     private Integer id;
 
     private String number;
