@@ -1,2 +1,8 @@
-# Ticket-sales-service
-Ticket sales service
+# Ticket sales service
+
+- Юдачев Никита
+- Маринкин Олег 
+- Кузнецов Анатолий
+- Селедцов Александр 
+- Зубарева Татьяна
+- Кривошапова Дарья 
