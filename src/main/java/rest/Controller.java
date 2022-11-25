@@ -25,7 +25,26 @@ public class Controller {
 
     @Autowired
     private HtmlPageService htmlPageService;
-   
+    @Autowired
+    private FileService fileService;
+
+
+    /**
+     * Пример метода который будет вызываться по URL: http://localhost:8080
+     * метод возвращает html страницу, "resources/templates/welcome.html"
+     **/
+    @GetMapping(value = "/")
+    public ModelAndView main() {
+        ModelAndView modelAndView = new ModelAndView();
+        return htmlPageService.createFlightPage();
+    }
+
+    @PostMapping("/")
+    public void handleFileUpload(@RequestParam("file") MultipartFile file,
+                                   RedirectAttributes redirectAttributes, HttpServletResponse response) throws IOException, ParseException {
+        fileService.uploadFile(file.getOriginalFilename());
+        response.sendRedirect("/");
+    }
 
     @GetMapping(value = "/login")
     public ModelAndView login() {
