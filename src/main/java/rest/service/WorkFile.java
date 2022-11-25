@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class WorkFile {
 
-    private final String dirPath = "/Users/darakrivosapova/Downloads/Telegram Desktop/web-template 2/files/";
+    private final String dirPath = "C:\\Users\\Пользователь\\IdeaProjects\\Ticket-sales-service\\files\\";
 
     public ArrayList<FlightDto> readCSV(String filename) throws IOException {
         String filePath = dirPath + filename;
