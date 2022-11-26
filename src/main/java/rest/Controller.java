@@ -34,16 +34,23 @@ public class Controller {
      * метод возвращает html страницу, "resources/templates/welcome.html"
      **/
     @GetMapping(value = "/")
+    public ModelAndView welcome() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("start"); // указываю какую страницу вернуть
+        modelAndView.getModel().put("message", "добро пожаловать."); // иньекция значений на страницу
+        return modelAndView;
+    }
+    @GetMapping(value = "/admin")
     public ModelAndView main() {
         ModelAndView modelAndView = new ModelAndView();
         return htmlPageService.createFlightPage();
     }
 
-    @PostMapping("/")
+    @PostMapping("/admin")
     public void handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes, HttpServletResponse response) throws IOException, ParseException {
         fileService.uploadFile(file.getOriginalFilename());
-        response.sendRedirect("/");
+        response.sendRedirect("/admin");
     }
 
     @GetMapping(value = "/login")

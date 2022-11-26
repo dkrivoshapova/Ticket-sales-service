@@ -23,7 +23,7 @@ public class WorkFile {
             reader = new BufferedReader(new FileReader(filePath));
             while ((line = reader.readLine()) != null) {
                 String[] row = line.split(",");
-                List<String> daysOfWeek = List.of(row[7]); // list.of - неизменяемый список
+                List<String> daysOfWeek = List.of(row[7].split(",")); // list.of - неизменяемый список
                 FlightDto account = new FlightDto(row[0], row[1], row[2], row[3], row[4], row[5],row[6], row[7], daysOfWeek);
                 flights.add(account);
             }
